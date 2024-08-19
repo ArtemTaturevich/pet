@@ -3,14 +3,13 @@ import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import TodoList from './components/TodoList';
-import { formatDistanceToNowStrict } from "date-fns";
 
 function App() {
 
   const [todoList, setTodoList] = useState([
-    {id: 0, className: null, classHidden: null, completed: false, editing: false, text: 'Hellodd World', time: 'cre 2 min ago'},
-    {id: 1, className: null, classHidden: null, completed: false, editing: false, text: 'Hello World edit', time: 'cre 2 min ago'},
-    {id: 2, className: null, classHidden: null, completed: false, editing: false, text: 'Hello World', time: 'cre 2 min ago'},
+    {id: 0, className: null, classHidden: null, completed: false, editing: false, text: 'Hellodd World'},
+    {id: 1, className: null, classHidden: null, completed: false, editing: false, text: 'Hello World edit'},
+    {id: 2, className: null, classHidden: null, completed: false, editing: false, text: 'Hello World'},
   ])
 
   const [btn, setBtn] = useState([
@@ -18,16 +17,6 @@ function App() {
     {id: 2, className: null, text: 'Active'},
     {id: 3, className: null, text: 'Completed'}
   ])
-
-  const [date, setDate] = useState(new Date())
-
-  setTimeout(() => {
-    setDate(new Date())
-  }, 100000) 
-
-  const result = formatDistanceToNowStrict(
-    new Date(date)
-  )
 
   const Active = (id) => {
     btn.map(el => el.className =null)
@@ -111,7 +100,7 @@ function App() {
   }
 
   const onNewTodo = (text) => {
-    const newTodo = {id: Math.random(), className: null, editing: false, text: text, time: result}
+    const newTodo = {id: Math.random(), className: null, editing: false, text: text}
     setTodoList((newTodoList) => {
       const newArr = [
         newTodo,
